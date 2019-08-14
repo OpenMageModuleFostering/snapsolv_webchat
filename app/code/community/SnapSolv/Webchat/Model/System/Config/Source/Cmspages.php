@@ -21,10 +21,11 @@
 class SnapSolv_Webchat_Model_System_Config_Source_Cmspages
 {
     public function toOptionArray()
-    {   
+    {  
+	 
 		$pages = Mage::getModel('cms/page')->getCollection()->toOptionArray();
 		$cmsPages = array(); 
-		$cmsPages[] = array('value'=>'', 'label'=>'-Select Page-');   
+		$cmsPages[] = array('value'=>'', 'label'=>'-Select pages for chat-');   
 		$cmsPages[] = array('value'=>'-1', 'label'=>'No Page');  
 		$cmsPages[] = array('value'=>'product_list', 'label'=>'Product List');    			
 		$cmsPages[] = array('value'=>'product_details', 'label'=>'Product Details',);   				
@@ -34,6 +35,7 @@ class SnapSolv_Webchat_Model_System_Config_Source_Cmspages
 		foreach($pages as $page){
 			$cmsPages[] = array('value'=>$page['value'], 'label'=>$page['label']);        
 		} 
+	  
 		return $cmsPages;   
     }
 }

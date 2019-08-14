@@ -3,11 +3,11 @@
     "type": "magento-module",
     "license": "GNU-General-Public-License",
     "homepage": "",
-    "description": "SnapSolv Webchat Channel Widget.",
+    "description": "SnapSolv Webchat Widget.",
     "authors": [
     {
-        "name": "sureshv@snapsolv.com",
-        "email": "sureshv@snapsolv.com"
+        "name": "suresh@snapsolv.com",
+        "email": "suresh@snapsolv.com"
     }
 ],
     "suggest": {

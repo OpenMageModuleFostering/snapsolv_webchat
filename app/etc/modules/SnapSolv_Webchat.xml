@@ -15,11 +15,11 @@
  *
  * @category   Webchat
  * @package    SnapSolv_Webchat
- * @copyright  Copyright (c) 2015 webchat, Inc.
- * @author	   SnapSolv Developer <SnapSolv@jframeworks.com>
- * @license    http://opensource.org/licenses/gpl-license GNU General Public License
+ * @copyright  Copyright (c) 2016 DRVYN, Inc.
+ * @author	   SnapSolv Developer <suresh@snapsolv.com>
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
--->
+ -->
 <config>
     <modules>
         <SnapSolv_Webchat>

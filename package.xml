@@ -1,25 +1,32 @@
 <?xml version="1.0"?>
 <package>
     <name>SnapSolv_Webchat</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <stability>stable</stability>
     <license uri="http://opensource.org/licenses/gpl-license">GNU General Public License</license>
     <channel>community</channel>
     <extends/>
-    <summary>SnapSolv Webchat Channel Widget.</summary>
+    <summary>SnapSolv Webchat Widget.</summary>
     <description>SnapSolv Webchat is a web widget that can be integrated into Magento. This web widget running on web page connects with a customer service agent for live chat. The webwidget is in Angular.js and consists of 2 parts:-&#xD;
 &#xD;
+&#xD;
+&#xD;
 1. Client side HTML/JS code that should  be embedded into website html pages. In Magento we add this in web design configuration template. &#xD;
+&#xD;
 2. The main java script code that is called from the client side snippet is deployed on the server side.&#xD;
 &#xD;
+&#xD;
+&#xD;
 For more details, visit our website:&#xD;
+&#xD;
 https://snapsolv.com/</description>
     <notes>Stable release&#xD;
+&#xD;
 One more service added to the form with correction</notes>
-    <authors><author><name>sureshv@snapsolv.com</name><user>admin</user><email>sureshv@snapsolv.com</email></author></authors>
-    <date>2016-11-15</date>
-    <time>13:46:46</time>
-    <contents><target name="magecommunity"><dir name="SnapSolv"><dir name="Webchat"><dir name="Helper"><file name="Data.php" hash="48ffd605124a33e0e008bccefaa98928"/></dir><dir name="Model"><dir name="System"><dir name="Config"><dir name="Source"><file name="Cmspages.php" hash="db4e98182e803efac7ce17fa8123bc8c"/></dir></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="84aabdf8aafada8ae44cfd705caa8da0"/><file name="config.xml" hash="79817502b220ece5ed61f03b6fd9e575"/><file name="system.xml" hash="1eb29268d90ba3141791b8ae6ec33b36"/></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="picker.xml" hash="e3a8e547078a61714ac290b9f116b557"/></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="snapsolv_webchat.xml" hash="9c58e244375f34c9652e9b79785425a5"/></dir><dir name="template"><dir name="webchat"><dir name="html"><file name="footer.webchat.phtml" hash="5d97aab55b8d6d44a4444f122f3da378"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SnapSolv_Webchat.xml" hash="5fa87f8306214cd05cf44d2b3e46a97a"/></dir></target></contents>
+    <authors><author><name>suresh@snapsolv.com</name><user>admin</user><email>suresh@snapsolv.com</email></author></authors>
+    <date>2017-04-13</date>
+    <time>11:50:14</time>
+    <contents><target name="magecommunity"><dir name="SnapSolv"><dir name="Webchat"><dir name="Block"><dir name="Adminhtml"><dir name="Webchat"><file name="Form.php" hash="ee8c904b49d24149caea0ed5806e1358"/></dir><file name="Webchat.php" hash="13850f9b7730f44f5e2cecb62f401709"/></dir></dir><dir name="Helper"><file name="Data.php" hash="459642eed6f1c015edb895a7815f467d"/></dir><dir name="Model"><dir name="Adminhtml"><file name="Pages.php" hash="f28648f027bf20f3f46277f40d97d3ef"/></dir><dir name="Resource"><dir name="Webchat"><file name="Collection.php" hash="7330a4b09e262724d241c908867a1279"/></dir><file name="Webchat.php" hash="4751d15b0424b126dcf639c6e8c9482a"/></dir><dir name="System"><dir name="Config"><dir name="Source"><file name="Cmspages.php" hash="e3f58680eb9e8379476c31fa78c43f90"/></dir></dir></dir><file name="Webchat.php" hash="e5e317c2438062619afcd14c5a0ff5a8"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="WebchatController.php" hash="322db3c8d16e9b8795114080ec615802"/></dir><file name="WebchatController.php" hash="eb83484f2ad81a95a61efe7178c084cd"/></dir><dir name="etc"><file name="adminhtml.xml" hash="3328f5a6ab6c101c99b3abd5cae94c83"/><file name="config.xml" hash="448a671be82b2fed61065dc3a3098ec7"/><file name="system.xml" hash="8651dff07de75f3302b2ee50d729451f"/></dir><dir name="sql"><dir name="webchat_setup"><file name="install-1.0.1.php" hash="1c88410da144c7e8652029d7e9f6aa11"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="snapsolv_webchat.xml" hash="daf1a7e026e5469ed3459d0c4ee16af6"/></dir><dir name="template"><dir name="webchat"><dir name="html"><file name="footer.webchat.phtml" hash="395f231d027a8cb27b8cd05c5ea4d606"/></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="webchat"><file name="account.phtml" hash="82765493f3ec6a7850995d49ba1ac377"/></dir></dir><dir name="layout"><file name="webchat.xml" hash="0cab5efe181a70d62cc0167974d8e7f2"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SnapSolv_Webchat.xml" hash="10dd7c7601ba71b3924c4785d1eb1b08"/></dir></target><target name="mageskin"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="images"><file name="wp-widget-banner.jpg" hash="cd96263381ba8eaea3d543913a4add96"/></dir></dir></dir><dir name="base"><dir name="default"><dir name="js"><file name="jquery.js" hash="b08d944a7d8a6a498f821d0513b763fe"/></dir></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>7.0.2</max></php></required></dependencies>
 </package>

@@ -1,0 +1,705 @@
+<?php
+/*
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/gpl-license
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@refersion.com so we can send you a copy immediately.
+ *
+ * @category   Webchat
+ * @package    SnapSolv_Webchat
+ * @copyright  Copyright (c) 2016 DRVYN, Inc.
+ * @author	   SnapSolv Developer <suresh@snapsolv.com>
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ 
+$webchat =  Mage::getModel('webchat/webchat')->getCollection();
+if($webchat->getData('webchat_id')): ?>
+    <div class="snap_solv_container">
+        <h2>Thanks for choosing Snapsolv Chat. </h2>  <br><br><h3>Please check your email to activate Snapsolv account.</h3> <br> <br>
+        <h3> Signin to <a href="https://signin.snapsolv.com" target="_blank">Snapsolv dashboard here</a>  to customize the chat widget to your branding needs and to customize your messaging defaults. <br>That’s it, you are all set to engage customers from Snapsolv or download our mobile apps to support on the go.</h3>
+        <h3><a href="<?php echo Mage::helper("adminhtml")->getUrl("adminhtml/system_config/edit/section/webchat")?>" class="">SnapSolv Webchat Settings</a></h3>
+    </div>
+	<form id="reset" method="post">
+    <?php foreach($webchat->getData() as $row) { ?>
+		<input type="hidden" value="<?php echo $row['webchat_id']; ?>" name="webchat_id" id="webchat_id"/>
+        <?php } ?>
+		<input type="button" value="Reset" class="reset-button" />
+	</form>
+	<?php else: ?>
+	<?php $url=  Mage::getUrl('webchat/webchat/sendapi'); ?>
+	<?php $login_url= Mage::getUrl('webchat/webchat/sendloginapi'); ?>
+
+	<div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend">Sign<span class="change_text">up</span> to add SnapSolv Chat</h4>
+        <div class="form-buttons"></div>
+	</div>
+
+	<div><img src="<?php echo $this->getSkinUrl();?>images/wp-widget-banner.jpg"/></div>
+	<div id="messages"><ul class="messages"></ul></div>
+
+	<form id="edit_form" >
+	<div class="fieldset signup" id="base_fieldset">
+
+    	<div class="hor-scroll">
+
+      	<table class="form-list" cellspacing="0">
+
+        	<tbody>
+
+          	<tr>
+
+        			<td class="label"><label for="customer_group_code">Business/Brand Name <span class="required">*</span></label></td>
+
+    					<td class="value">
+
+        				<input id="brand_name" name="brand_name" value="" title="Business/Brand Name " class="required-entry input-text required-entry" type="text">
+
+            	</td>
+
+    				</tr>
+
+            <tr>
+
+        			<td class="label"><label for="agent_firstname">Account Admin Firstname <span class="required">*</span></label></td>
+
+    					<td class="value">
+
+        				<input id="agent_firstname" name="agent_firstname" value="" title="Account Admin Firstname" class="required-entry input-text required-entry" type="text">
+
+            	</td>
+
+    				</tr>
+
+            <tr>
+
+        			<td class="label"><label for="agent_lastname">Account Admin Lastname <span class="required">*</span></label></td>
+
+    					<td class="value">
+
+        				<input id="agent_lastname" name="agent_lastname" value="" title="Account Admin Lastname" class="required-entry input-text required-entry" type="text">
+
+            	</td>
+
+    				</tr>
+
+            <tr>
+
+        			<td class="label"><label for="agent_email">Email address <span class="required">*</span></label></td>
+
+    					<td class="value">
+
+        				<input id="agent_email" name="agent_email" value="" title="Email address" class="required-entry validate-email input-text required-entry" type="text">
+
+            	</td>
+
+    				</tr>
+
+            <tr>
+
+        			<td class="label"><label for="password">Account Password <span class="required">*</span></label></td>
+
+    					<td class="value">
+
+        				<input id="password" name="password" value="" title="Account Password" class="required-entry input-text required-entry" type="password">
+
+            	</td>
+
+    				</tr>
+
+            <tr>
+
+        			<td class="label"><label for="password_again">Confirm Account Password <span class="required">*</span></label></td>
+
+    					<td class="value">
+
+        				<input id="password_again" name="password_again" value="" title="Account Password" class="required-entry input-text required-entry" type="password">
+
+            	</td>
+
+    				</tr>
+
+            <tr>
+
+        			<td class="label"><label for="agent_phone">Phone Number</label></td>
+
+    					<td class="value">
+
+        				<input id="agent_phone" name="agent_phone" value="" title="Phone Number" class="agent_phone required-entry input-text required-entry" type="text">
+                         <span class="error" style="color: Red; display: none">* Enter only characters (0 - 9)</span>
+
+            	</td>
+
+    				</tr>
+
+            <tr>
+
+            	<td></td>
+
+        			<td class="value">
+
+								<input id="term_condition_privacy_policy" name="term_condition_privacy_policy" value="auto" type="checkbox">
+
+								<label for="account-send-pass">By submitting my information above, I agree to Snapsolv <a href="https://snapsolv.com/conditions" target="_blank">Terms</a> and <a href="https://snapsolv.com/privacy" target="_blank">Privacy Policies</a></label>
+
+							</td>
+
+    				</tr>
+
+            <tr>
+
+            	<td></td>
+
+        			<td class="value">
+
+								<button type="button" onclick="webchat_send();"  name="agent_submit"><span><span><span id="button-val">Sign Up</span></span></span></button>
+
+                               
+
+							</td>
+
+    				</tr>
+
+           </tbody>
+
+        </table>
+
+            </div>
+
+        </div>
+
+<span class="field-row">
+
+<input id="id" name="id" value="0" type="hidden">
+
+</span>
+
+</form>
+
+
+
+	<div class="ss_login">
+
+		<p> Already have Snapsolv account? <a href="javascript:void(0)" class="click_for_login">Login here</a></p>
+
+	</div>
+
+    
+
+    <!-- login form-->
+
+    <div class="signin" style="display:none;">
+
+			<form method="post" id="login-form">
+
+			<table class="form-list" cellspacing="0">
+
+        	<tbody>
+
+          	<tr>
+
+        			<td class="label"><label for="customer_email_address">Email Address <span class="required">*</span></label></td>
+
+    					<td class="value">
+
+        				<input id="email_address" name="email_address" value="" title="Email address" class="required-entry input-text required-entry" type="email">
+
+            	</td>
+
+    				</tr>
+
+					<tr>
+
+        			<td class="label"><label for="customer_password">Account Paasword <span class="required">*</span></label></td>
+
+    					<td class="value">
+
+        				<input id="customer_password" name="customer_password" value="" title="password" class="required-entry input-text required-entry" type="password">
+
+            	</td>
+
+    				</tr>
+
+											 <tr>
+
+            	<td></td>
+
+        			<td class="value">
+
+								<input id="term_policy" name="term_policy" value="auto" type="checkbox">
+
+								<label for="account-send-pass">By submitting my information above, I agree to Snapsolv<a href="https://snapsolv.com/conditions" target="_blank">Terms</a> and <a href="https://snapsolv.com/privacy" target="_blank">Privacy Policies</a></label>
+
+							</td>
+
+    				</tr>
+
+            <tr>
+
+            	<td></td>
+
+        			<td class="value">
+
+								<button type="button" onclick="webchat_login_send();"  name="agent_submit"><span><span><span id="button-val">Login</span></span></span></button>
+
+                               
+
+							</td>
+
+    				</tr>
+
+           </tbody>
+
+								</table>
+
+								
+
+							</form>
+
+							<div class="ss_sigup">
+
+							<p>Not Registered yet ?<a href="javascript:void(0)" class="click_for_signup">SignUp</a></p>
+
+							</div>
+
+						</div>
+
+    
+
+    
+
+    <?php endif;?>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<script type="text/javascript">
+
+$j = jQuery.noConflict();
+
+$j('.reset-button').click(function() {  
+
+	var webchat_id = $j('#webchat_id').val();
+
+	$j.ajax({
+
+		url: "<?php echo Mage::getUrl('webchat/webchat/delete'); ?>",
+
+		type: "POST",
+
+		data: {webchat_id: webchat_id},
+
+		success: function(response){
+
+			alert("Successfully reset");
+
+			window.location.reload();
+
+		}
+
+	});
+
+
+
+});
+
+
+
+
+
+
+
+$j('.click_for_login').click(function(e) {
+
+	$j('.change_text').text('in');
+
+    $j('.signin').show();
+
+	$j('.signup').hide();
+
+	$j('.ss_login').hide();
+
+	$j('.ss_sigup').show();
+
+});
+
+
+
+$j('.click_for_signup').click(function(e) {
+
+	$j('.change_text').text('up');
+
+    $j('.signin').hide();
+
+	$j('.signup').show();
+
+	$j('.ss_login').show();
+
+});
+
+/*
+ var specialKeys = new Array();
+        specialKeys.push(8); //Backspace
+        $j(function () {
+            $j("#agent_phone").bind("keypress", function (e) {
+                var keyCode = e.which ? e.which : e.keyCode
+                var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+                $j(".error").css("display", ret ? "none" : "inline");
+                return ret;
+            });
+            $j("#agent_phone").bind("paste", function (e) {
+                return false;
+            });
+            $j("#agent_phone").bind("drop", function (e) {
+                return false;
+            });
+        });
+*/
+
+
+
+
+function webchat_send(){
+
+			var webchat_email = $j("#agent_email").val();
+
+			var webchat_password = $j("#password").val();
+
+			var webchat_confirm_password = $j("#password_again").val();
+
+			var webchat_first_name = $j("#agent_firstname").val();
+
+			var webchat_last_name = $j("#agent_lastname").val();
+
+			var webchat_phone_number = $j("#agent_phone").val();
+
+			var webchat_business_name = $j("#brand_name").val();
+
+			var webchat_terms = $j("#term_condition_privacy_policy").is(':checked');
+
+			var webchat_phone = $j("#agent_phone").val();
+
+
+			var webchat_error= "";
+
+			var rp = /(?=\S{6,})(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/;
+
+			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			
+			var ph = /^(?=.*[0-9])[- +()0-9]+$/;
+			
+			
+
+
+			if(webchat_business_name==""){
+
+				webchat_error += "-- Enter your Business/Brand Name. \n";
+
+			}
+
+			if(webchat_first_name==""){
+
+				webchat_error += "-- Enter your Account Admin Firstname. \n";
+
+			}
+
+			if(webchat_last_name==""){
+
+				webchat_error += "-- Enter your Account Admin Lastname. \n";
+
+			}
+
+			
+
+			if(webchat_email==""){
+
+				webchat_error += "-- Enter your Email address. \n";
+
+			}
+
+			else if(!re.test(webchat_email)){
+
+				webchat_error += "-- Please submit valid email address. \n";
+
+			}
+
+			
+
+		
+
+			if(webchat_password==""){
+
+				webchat_error += "-- Enter your Account Password. \n";
+
+			}
+
+			else if(!rp.test(webchat_password)){
+
+				webchat_error += "-- Password has to be at least 6 chars long, one uppercase and one numerical!. \n";
+
+			}
+
+			if(webchat_confirm_password==""){
+
+				webchat_error += "-- Confirm Account Password field is required. \n";
+
+			}
+
+			else if(webchat_confirm_password != webchat_password) {
+
+				webchat_error += "-- Account Password does not match. \n";
+
+			}
+
+			
+
+			
+
+			if(!webchat_terms) {
+
+				webchat_error += "-- Please check terms and condition. \n";
+
+			}
+
+
+			
+				 
+			if(webchat_phone.length >= 1){
+				
+				if(!ph.test(webchat_phone)){
+					
+					webchat_error += "-- Please enter a valid number. \n";
+				}
+				
+				else if(webchat_phone.length < 10) {
+				
+				webchat_error += "-- Phone number atleast 10 characters. \n";
+				
+			}
+
+			else if(webchat_phone.length > 12) {
+				
+				webchat_error += "-- Phone number not more than 12 characters. \n";
+				
+			}
+			}
+			
+			
+			
+			
+			 
+
+			
+
+			
+
+			if(webchat_error!=""){
+
+				alert(webchat_error);
+
+				return false;
+
+			}
+
+		
+
+			
+
+		new Ajax.Request("<?php echo $url ?>", {
+
+			method: "post",
+
+			parameters: 
+
+			{	
+
+				email:webchat_email, 
+
+				password:webchat_password,
+
+				confirm_password:webchat_confirm_password,
+
+				first_name:webchat_first_name,
+
+				last_name:webchat_last_name,
+
+				phone_number:webchat_phone_number,
+
+				business_name:webchat_business_name
+
+			},	
+
+			onSuccess: function(transport) {
+
+				var response = transport.responseText;
+
+					$j('.messages').html('<li class="success-msg">'+response+'</li>');
+
+					window.location.reload();
+
+				},
+
+			onFailure: function() { alert("Something went wrong..."); },
+
+			onComplete: completeFunc ,
+
+			onLoading : loadFunc,
+
+			});
+
+		
+
+		  function loadFunc(response){
+
+		   $j("#button-val").update("sending");
+
+		
+
+		 }
+
+		  function completeFunc(response){
+
+				$j("#button-val").update("Submit");
+
+		   		window.location.reload();  
+
+		 }
+
+		}
+
+		
+
+		
+
+		
+
+function webchat_login_send(){
+
+	var webchat_username = $j("#email_address").val();
+
+	var webchat_password = $j("#customer_password").val();
+
+	var webchat_terms = $j("#term_policy").is(':checked');
+
+	
+
+	var webchat_error= "";
+
+	var rp = /(?=\S{6,})(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/;
+
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	
+
+	
+
+	if(webchat_username==""){
+
+		webchat_error += "-- Account Admin Email address is required. \n";
+
+	}
+
+	else if(!re.test(webchat_username)){
+
+		webchat_error += "-- Please submit valid email address. \n";
+
+	}
+
+	if(webchat_password==""){
+
+		webchat_error += "-- Account Password is required. \n";
+
+	}
+
+	else if(!rp.test(webchat_password)){
+
+		webchat_error += "-- Password has to be at least 6 chars long, one uppercase and one numerical!. \n";
+
+	}
+
+	if(!webchat_terms) {
+
+		webchat_error += "-- Please check terms and condition. \n";
+
+	}
+
+	
+
+	
+
+	if(webchat_error!=""){
+
+		alert(webchat_error);
+
+		return;
+
+	}
+
+
+
+	
+
+new Ajax.Request("<?php echo $login_url ?>", {
+
+  	method: "post",
+
+  	parameters: {username:webchat_username,password:webchat_password},
+
+		 onSuccess: function(transport) {
+
+    var response = transport.responseText;
+
+	
+
+		$j('.messages').html('<li class="success-msg">'+response+'</li>');
+
+		window.location.reload();
+
+	
+
+    
+
+  },
+
+  onFailure: function() { alert("Something went wrong..."); },
+
+  onComplete: completeFunc ,
+
+		onLoading : loadFunc,
+
+	});
+
+
+
+  		function loadFunc(response){
+
+		   $j("#button-val").update("sending");
+
+		
+
+		 }
+
+		  function completeFunc(response){
+
+				$j("#button-val").update("Submit");
+
+		   		window.location.reload();  
+
+		 }
+
+}
+
+</script>

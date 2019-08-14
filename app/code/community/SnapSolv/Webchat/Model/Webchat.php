@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /*
  * Magento
  *
@@ -19,11 +18,19 @@
  * @author	   SnapSolv Developer <suresh@snapsolv.com>
  * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
- -->
-<layout>
-	<default>
-		<reference name="footer">
-			<block type="core/template" template="webchat/html/footer.webchat.phtml" name="footer_webchat" as="footer_webchat" />
-		</reference>
-	</default>
-</layout>
+ 
+class SnapSolv_Webchat_Model_Webchat extends Mage_Core_Model_Abstract
+{
+    public function _construct()
+    {
+        $this->_init('webchat/webchat');
+    }
+	
+	public function deleteRow() {
+		$collection = Mage::getResourceModel('webchat/webchat_collection')->addFieldToFilter('webchat_id', $webchat->getId());
+		foreach ($collection as $item) {
+    		$item->delete();
+		}	
+	}
+
+}
