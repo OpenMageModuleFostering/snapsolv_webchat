@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/gpl-license
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@refersion.com so we can send you a copy immediately.
+ *
+ * @category   Webchat
+ * @package    SnapSolv_Webchat
+ * @copyright  Copyright (c) 2016 DRVYN, Inc.
+ * @author	   SnapSolv Developer <contact@snapsolv.com>
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0) 
+ */
+-->
+<config>
+    <modules>
+        <SnapSolv_Webchat>
+            <version>0.0.1</version>
+        </SnapSolv_Webchat>
+    </modules>
+    <global>
+		<models>
+            <webchat>
+                <class>SnapSolv_Webchat_Model</class>
+            </webchat>     
+        </models>
+        <helpers>
+            <webchat>
+                <class>SnapSolv_Webchat_Helper</class>
+            </webchat>
+        </helpers>
+    </global>
+	<frontend>
+		<layout>
+            <updates>
+                <SnapSolv_Webchat module="SnapSolv_Webchat">
+                    <file>snapsolv_webchat.xml</file>
+                </SnapSolv_Webchat>
+            </updates>
+        </layout>
+	</frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <basket>
+                    <file>picker.xml</file>
+                </basket>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

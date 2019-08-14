@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/SnapSolv_Webchat",
+    "type": "magento-module",
+    "license": "GNU-General-Public-License",
+    "homepage": "",
+    "description": "SnapSolv Webchat Channel Widget.",
+    "authors": [
+    {
+        "name": "sureshv@snapsolv.com",
+        "email": "sureshv@snapsolv.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

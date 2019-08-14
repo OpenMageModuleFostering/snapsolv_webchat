@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+    <name>SnapSolv_Webchat</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/gpl-license">GNU General Public License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>SnapSolv Webchat Channel Widget.</summary>
+    <description>SnapSolv Webchat is a web widget that can be integrated into Magento. This web widget running on web page connects with a customer service agent for live chat. The webwidget is in Angular.js and consists of 2 parts:-&#xD;
+&#xD;
+1. Client side HTML/JS code that should  be embedded into website html pages. In Magento we add this in web design configuration template. &#xD;
+2. The main java script code that is called from the client side snippet is deployed on the server side.&#xD;
+&#xD;
+For more details, visit our website:&#xD;
+https://snapsolv.com/</description>
+    <notes>Stable release&#xD;
+One more service added to the form with correction</notes>
+    <authors><author><name>sureshv@snapsolv.com</name><user>admin</user><email>sureshv@snapsolv.com</email></author></authors>
+    <date>2016-11-15</date>
+    <time>13:46:46</time>
+    <contents><target name="magecommunity"><dir name="SnapSolv"><dir name="Webchat"><dir name="Helper"><file name="Data.php" hash="48ffd605124a33e0e008bccefaa98928"/></dir><dir name="Model"><dir name="System"><dir name="Config"><dir name="Source"><file name="Cmspages.php" hash="db4e98182e803efac7ce17fa8123bc8c"/></dir></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="84aabdf8aafada8ae44cfd705caa8da0"/><file name="config.xml" hash="79817502b220ece5ed61f03b6fd9e575"/><file name="system.xml" hash="1eb29268d90ba3141791b8ae6ec33b36"/></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="picker.xml" hash="e3a8e547078a61714ac290b9f116b557"/></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="snapsolv_webchat.xml" hash="9c58e244375f34c9652e9b79785425a5"/></dir><dir name="template"><dir name="webchat"><dir name="html"><file name="footer.webchat.phtml" hash="5d97aab55b8d6d44a4444f122f3da378"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SnapSolv_Webchat.xml" hash="5fa87f8306214cd05cf44d2b3e46a97a"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>7.0.2</max></php></required></dependencies>
+</package>
